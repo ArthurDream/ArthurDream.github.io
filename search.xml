@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>AJAX 知识复习(转)</title>
+      <link href="/ArthurDream/2020/08/03/Ajax%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/"/>
+      <url>/ArthurDream/2020/08/03/Ajax%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\ArthurDream\assets\css\APlayer.min.css"><script src="\ArthurDream\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="AJAX-简介"><a href="#AJAX-简介" class="headerlink" title="AJAX 简介"></a>AJAX 简介</h2><hr><p>AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。</p><hr><h2 id="什么是-AJAX-？"><a href="#什么是-AJAX-？" class="headerlink" title="什么是 AJAX ？"></a>什么是 AJAX ？</h2><p>AJAX = 异步 JavaScript 和 XML。</p><p>AJAX 是一种用于创建快速动态网页的技术。</p><p>通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p><p>传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。</p><p><a href="https://arthurblog.oss-cn-beijing.aliyuncs.com/Ajax1.png" target="_blank" rel="noopener">https://arthurblog.oss-cn-beijing.aliyuncs.com/Ajax1.png</a></p><h2 id="AJAX是基于现有的Internet标准"><a href="#AJAX是基于现有的Internet标准" class="headerlink" title="AJAX是基于现有的Internet标准"></a>AJAX是基于现有的Internet标准</h2><p>AJAX是基于现有的Internet标准，并且联合使用它们：</p><ul><li>XMLHttpRequest 对象 (异步的与服务器交换数据)</li><li>JavaScript/DOM (信息显示/交互)</li><li>CSS (给数据定义样式)</li><li>XML (作为转换数据的格式)</li></ul><h2 id="AJAX-XMLHttpRequest对象"><a href="#AJAX-XMLHttpRequest对象" class="headerlink" title="AJAX - XMLHttpRequest对象"></a>AJAX - XMLHttpRequest对象</h2><p>所有现代浏览器均支持 XMLHttpRequest 对象（IE5 和 IE6 使用 ActiveXObject）。</p><p>XMLHttpRequest 用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p><h2 id="创建-XMLHttpRequest-对象"><a href="#创建-XMLHttpRequest-对象" class="headerlink" title="创建 XMLHttpRequest 对象"></a>创建 XMLHttpRequest 对象</h2><p>所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。</p><p>创建 XMLHttpRequest 对象的语法：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">variable=new XMLHttpRequest();</span><br></pre></td></tr></table></figure><h2 id="AJAX-向服务器发送请求"><a href="#AJAX-向服务器发送请求" class="headerlink" title="AJAX - 向服务器发送请求"></a>AJAX - 向服务器发送请求</h2><p>如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open("GET","ajax_info.txt",true);</span><br><span class="line">xmlhttp.send();</span><br></pre></td></tr></table></figure><table><thead><tr><th align="left">方法</th><th align="left">描述</th></tr></thead><tbody><tr><td align="left">open(<em>method</em>,<em>url</em>,<em>async</em>)</td><td align="left">规定请求的类型、URL 以及是否异步处理请求。<strong><em>method</em></strong>：请求的类型，GET 或 POST；<strong><em>url</em></strong>：文件在服务器上的位置；<strong><em>async</em></strong>：true（异步）或 false（同步）</td></tr><tr><td align="left">send(<em>string</em>)</td><td align="left">将请求发送到服务器。<strong><em>string</em></strong>：仅用于 POST 请求</td></tr></tbody></table><h2 id="用GET-还是-POST？"><a href="#用GET-还是-POST？" class="headerlink" title="用GET 还是 POST？"></a>用GET 还是 POST？</h2><p>与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。</p><p>然而，在以下情况中，使用 POST 请求：</p><ul><li>无法使用缓存文件（更新服务器上的文件或数据库）</li><li>向服务器发送大量数据（POST 没有数据量限制）</li><li>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</li></ul><h2 id="AJAX-服务器响应"><a href="#AJAX-服务器响应" class="headerlink" title="AJAX - 服务器响应"></a>AJAX - 服务器响应</h2><h2 id="服务器响应"><a href="#服务器响应" class="headerlink" title="服务器响应"></a>服务器响应</h2><p>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。</p><table><thead><tr><th align="left">属性</th><th align="left">描述</th></tr></thead><tbody><tr><td align="left">responseText</td><td align="left">获得字符串形式的响应数据。</td></tr><tr><td align="left">responseXML</td><td align="left">获得 XML 形式的响应数据。</td></tr></tbody></table><h2 id="responseText-属性"><a href="#responseText-属性" class="headerlink" title="responseText 属性"></a>responseText 属性</h2><p>如果来自服务器的响应并非 XML，使用 responseText 属性。</p><p>responseText 属性返回字符串形式的响应，因此可以这样使用：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById("myDiv").innerHTML=xmlhttp.responseText;</span><br></pre></td></tr></table></figure><h2 id="responseXML-属性"><a href="#responseXML-属性" class="headerlink" title="responseXML 属性"></a>responseXML 属性</h2><p>如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，使用 responseXML 属性：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xmlDoc&#x3D;xmlhttp.responseXML;</span><br><span class="line">txt&#x3D;&quot;&quot;;</span><br><span class="line">x&#x3D;xmlDoc.getElementsByTagName(&quot;ARTIST&quot;);</span><br><span class="line">for (i&#x3D;0;i&lt;x.length;i++)</span><br><span class="line">&#123;</span><br><span class="line">    txt&#x3D;txt + x[i].childNodes[0].nodeValue + &quot;&lt;br&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line">document.getElementById(&quot;myDiv&quot;).innerHTML&#x3D;txt;</span><br></pre></td></tr></table></figure><p>（节选自菜鸟教程）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AJAX </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux知识复习</title>
+      <link href="/ArthurDream/2020/08/03/Linux%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/"/>
+      <url>/ArthurDream/2020/08/03/Linux%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\ArthurDream\assets\css\APlayer.min.css"><script src="\ArthurDream\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JSON 知识复习</title>
       <link href="/ArthurDream/2020/07/30/JSON%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/"/>
       <url>/ArthurDream/2020/07/30/JSON%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/</url>
