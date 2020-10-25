@@ -115,26 +115,28 @@ if (autoChangeMode === '1') {
 <h2 id="创建-XMLHttpRequest-对象"><a href="#创建-XMLHttpRequest-对象" class="headerlink" title="创建 XMLHttpRequest 对象"></a>创建 XMLHttpRequest 对象</h2><p>所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。</p>
 <p>创建 XMLHttpRequest 对象的语法：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">variable=new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
-
 <h2 id="AJAX-向服务器发送请求"><a href="#AJAX-向服务器发送请求" class="headerlink" title="AJAX - 向服务器发送请求"></a>AJAX - 向服务器发送请求</h2><p>如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open("GET","ajax_info.txt",true);</span><br><span class="line">xmlhttp.send();</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">方法</th>
-<th align="left">描述</th>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">open(<em>method</em>,<em>url</em>,<em>async</em>)</td>
-<td align="left">规定请求的类型、URL 以及是否异步处理请求。<strong><em>method</em></strong>：请求的类型，GET 或 POST；<strong><em>url</em></strong>：文件在服务器上的位置；<strong><em>async</em></strong>：true（异步）或 false（同步）</td>
+<tbody>
+<tr>
+<td style="text-align:left">open(<em>method</em>,<em>url</em>,<em>async</em>)</td>
+<td style="text-align:left">规定请求的类型、URL 以及是否异步处理请求。<strong><em>method</em></strong>：请求的类型，GET 或 POST；<strong><em>url</em></strong>：文件在服务器上的位置；<strong><em>async</em></strong>：true（异步）或 false（同步）</td>
 </tr>
 <tr>
-<td align="left">send(<em>string</em>)</td>
-<td align="left">将请求发送到服务器。<strong><em>string</em></strong>：仅用于 POST 请求</td>
+<td style="text-align:left">send(<em>string</em>)</td>
+<td style="text-align:left">将请求发送到服务器。<strong><em>string</em></strong>：仅用于 POST 请求</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="用GET-还是-POST？"><a href="#用GET-还是-POST？" class="headerlink" title="用GET 还是 POST？"></a>用GET 还是 POST？</h2><p>与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。</p>
 <p>然而，在以下情况中，使用 POST 请求：</p>
 <ul>
@@ -143,29 +145,31 @@ if (autoChangeMode === '1') {
 <li>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</li>
 </ul>
 <h2 id="AJAX-服务器响应"><a href="#AJAX-服务器响应" class="headerlink" title="AJAX - 服务器响应"></a>AJAX - 服务器响应</h2><h2 id="服务器响应"><a href="#服务器响应" class="headerlink" title="服务器响应"></a>服务器响应</h2><p>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">属性</th>
-<th align="left">描述</th>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">responseText</td>
-<td align="left">获得字符串形式的响应数据。</td>
+<tbody>
+<tr>
+<td style="text-align:left">responseText</td>
+<td style="text-align:left">获得字符串形式的响应数据。</td>
 </tr>
 <tr>
-<td align="left">responseXML</td>
-<td align="left">获得 XML 形式的响应数据。</td>
+<td style="text-align:left">responseXML</td>
+<td style="text-align:left">获得 XML 形式的响应数据。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="responseText-属性"><a href="#responseText-属性" class="headerlink" title="responseText 属性"></a>responseText 属性</h2><p>如果来自服务器的响应并非 XML，使用 responseText 属性。</p>
 <p>responseText 属性返回字符串形式的响应，因此可以这样使用：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById("myDiv").innerHTML=xmlhttp.responseText;</span><br></pre></td></tr></table></figure>
-
 <h2 id="responseXML-属性"><a href="#responseXML-属性" class="headerlink" title="responseXML 属性"></a>responseXML 属性</h2><p>如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，使用 responseXML 属性：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xmlDoc&#x3D;xmlhttp.responseXML;</span><br><span class="line">txt&#x3D;&quot;&quot;;</span><br><span class="line">x&#x3D;xmlDoc.getElementsByTagName(&quot;ARTIST&quot;);</span><br><span class="line">for (i&#x3D;0;i&lt;x.length;i++)</span><br><span class="line">&#123;</span><br><span class="line">    txt&#x3D;txt + x[i].childNodes[0].nodeValue + &quot;&lt;br&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line">document.getElementById(&quot;myDiv&quot;).innerHTML&#x3D;txt;</span><br></pre></td></tr></table></figure>
-
 <p>（节选自菜鸟教程）</p>
 </div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">A</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://arthurdream.gitee.io/2020/08/03/Ajax%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/">https://arthurdream.gitee.io/2020/08/03/Ajax%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://arthurdream.gitee.io" target="_blank">AのBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/ArthurDream/tags/AJAX/">AJAX</a></div><div class="post_share"><div class="social-share" data-image="https://arthurblog.oss-cn-beijing.aliyuncs.com/中川梨花2.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/ArthurDream/2020/09/26/CSMA-CA%E4%B8%8ECSMA-CD%E7%9A%84%E5%BC%82%E5%90%8C/"><img class="prev-cover" data-src="https://arthurblog.oss-cn-beijing.aliyuncs.com/MV-滨边美波.png" onerror="onerror=null;src='https://arthurblog.oss-cn-beijing.aliyuncs.com/01cea05755a4d06ac72525ae9cadcd.jpg@900w_1l_2o_100sh.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CSMA/CA与CSMA/CD的异同</div></div></a></div><div class="next-post pull-right"><a href="/ArthurDream/2020/07/30/JSON%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/"><img class="next-cover" data-src="https://arthurblog.oss-cn-beijing.aliyuncs.com/gakk.png" onerror="onerror=null;src='https://arthurblog.oss-cn-beijing.aliyuncs.com/01cea05755a4d06ac72525ae9cadcd.jpg@900w_1l_2o_100sh.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JSON 知识复习</div></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><script id="utterances_comment" src="https://utteranc.es/client.js" repo="ArthurDream/ArthurDream.gitee.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script><script>var themeNow = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
 document.getElementById('utterances_comment').setAttribute('theme',themeNow)
